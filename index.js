@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
 const { RtcTokenBuilder, RtcRole } = require('agora-access-token');
+require('dotenv').config();
 
-const agoraAppId = 'c828d3c5db8742a6bf25a73a49dc0e1a';
-const agoraAppCertificate = '718d5e082d9c4eb68285c137839c027b';
+const agoraAppId = process.env.AGORA_APP_ID;
+const agoraAppCertificate = process.env.AGORA_APP_CERTIFICATE;
 
 app.get('/gerar-token', (req, res) => {
   const { channelName, uid } = req.query;
